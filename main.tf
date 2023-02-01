@@ -162,8 +162,8 @@ resource "aws_instance" "ubuntu_server" {
 
   # Leave the first part of the block unchanged and create our `local-exec` provisioner
   provisioner "local-exec" {
-    #command = "chmod 600 ${local_file.private_key_pem.filename}"   #LINUX ENV 
-    command = "icacls ${local_file.private_key_pem.filename} /grant Users:RW"   #WINDOWS ENV
+    command = "chmod 600 ${local_file.private_key_pem.filename}"   #LINUX ENV 
+    #command = "icacls ${local_file.private_key_pem.filename} /grant Users:RW"   #WINDOWS ENV
   }
 
   provisioner "remote-exec" {
@@ -284,8 +284,8 @@ resource "aws_instance" "web_server" {
 
   # Leave the first part of the block unchanged and create our `local-exec` provisioner
   provisioner "local-exec" {
-    #command = "chmod 600 ${local_file.private_key_pem.filename}"    
-    command = "icacls ${local_file.private_key_pem.filename} /grant Users:RW"   #WINDOWS ENV
+    command = "chmod 600 ${local_file.private_key_pem.filename}"    
+    #command = "icacls ${local_file.private_key_pem.filename} /grant Users:RW"   #WINDOWS ENV
   }
 
   provisioner "remote-exec" {
